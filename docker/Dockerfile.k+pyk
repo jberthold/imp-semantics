@@ -1,8 +1,8 @@
-ARG K_VERSION=6.2.9
+ARG K_VERSION=6.2.4
 
 FROM runtimeverificationinc/kframework-k:ubuntu-jammy-$K_VERSION
 
-ARG K_VERSION=6.2.9
+ARG K_VERSION=6.2.4
 ARG PYK_VERSION=0.1.614
 
 # create non-root user and adjust UID:GID on start-up
