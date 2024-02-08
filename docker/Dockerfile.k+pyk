@@ -19,7 +19,7 @@ RUN apt install curl && \
     printf "user: $USER\ngroup: $GROUP\n" > /etc/fixuid/config.yml
 USER k-user:k-group
 WORKDIR /home/k-user
-ENV PATH=/home/k-user/.local/bin:$PATH
+ENV PATH=/home/k-user/.local/bin:$PATH force_color_prompt=yes
 
 # install poetry and pyk (ours! not the one in pip)
 RUN pip install poetry && \
@@ -27,6 +27,7 @@ RUN pip install poetry && \
     cd pyk-${PYK_VERSION} && \
     make build && \
     pip install dist/*.whl
+
 
 ENTRYPOINT ["fixuid", "-q"]
 
